@@ -1,7 +1,8 @@
-package com.robgar.books
+package com.robgar.books.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.robgar.books.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
