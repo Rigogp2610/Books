@@ -1,5 +1,6 @@
 package com.robgar.books.ui.main
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -9,15 +10,31 @@ import com.robgar.books.R
 import com.robgar.books.databinding.ActivityMainBinding
 import com.robgar.books.ui.main.all.AllFragment
 import com.robgar.books.ui.main.filter.FilterFragment
+import com.robgar.books.ui.maintenance.MaintenanceActivity
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
+
+    private val viewModel: MainViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setupObserver()
+
         loadFragment()
+    }
+
+    private fun setupObserver() {
+        viewModel.maintenance.observe(this, {
+            if (it == 1) {
+                startActivity(Intent(this, MaintenanceActivity::class.java))
+                finish()
+            }
+        })
+        viewModel.getMaintenance()
     }
 
     private fun loadFragment() {
