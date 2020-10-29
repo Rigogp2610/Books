@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="xxsmall_padding">2dp</dimen>
+    <dimen name="small_margin">8dp</dimen>
+    <dimen name="description">12sp</dimen>
+    <dimen name="title">18sp</dimen>
+    <dimen name="maintenance">26sp</dimen>
+    <dimen name="medium_margin">16dp</dimen>
+</resources>
