@@ -8,7 +8,7 @@ data class Book (
     @SerializedName("title")
     val title: String,
     @SerializedName("isbn")
-    val isbn: Int,
+    val isbn: Long,
     @SerializedName("description")
     val description: String,
     @SerializedName("genre")

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/filter_fantasy"
+        android:title="@string/fantasy"/>
+    <item
+        android:id="@+id/filter_crime"
+        android:title="@string/crime"/>
+
+    <item
+        android:id="@+id/filter_romance"
+        android:title="@string/romance"/>
+</menu>

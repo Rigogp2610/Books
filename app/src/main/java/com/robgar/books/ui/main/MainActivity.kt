@@ -1,12 +1,48 @@
 package com.robgar.books.ui.main
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import com.robgar.books.R
+import com.robgar.books.databinding.ActivityMainBinding
+import com.robgar.books.ui.main.all.AllFragment
+import com.robgar.books.ui.main.filter.FilterFragment
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        val binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        loadFragment()
+    }
+
+    private fun loadFragment() {
+        val fragmentTransaction = supportFragmentManager.beginTransaction()
+        fragmentTransaction.add(R.id.fragmentContainer, AllFragment.newInstance())
+        fragmentTransaction.commit()
+    }
+
+    private fun replaceFragment(fragment: Fragment) {
+        val fragmentTransaction = supportFragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.fragmentContainer, fragment)
+        fragmentTransaction.commit()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.filter_fantasy -> replaceFragment(FilterFragment.newInstance(resources.getString(R.string.fantasy_id)))
+            R.id.filter_crime -> replaceFragment(FilterFragment.newInstance(resources.getString(R.string.crime_id)))
+            R.id.filter_romance -> replaceFragment(FilterFragment.newInstance(resources.getString(R.string.romance_id)))
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

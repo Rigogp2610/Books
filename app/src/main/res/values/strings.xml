@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Books</string>
+    <string name="title">Título:</string>
+    <string name="isbn">Isbn:</string>
+    <string name="description">Descripción:</string>
+    <string name="genre">Género:</string>
+    <string name="fantasy">Fantasía</string>
+    <string name="crime">Crimen</string>
+    <string name="romance">Romance</string>
+    <string name="fantasy_id">fantasy</string>
+    <string name="crime_id">crime</string>
+    <string name="romance_id">romance</string>
 </resources>
